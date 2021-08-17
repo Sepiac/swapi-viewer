@@ -1,12 +1,19 @@
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Counter from './Components/Counter'
+import StarWarsCharacter from './Components/StarWarsCharacter';
 
 function App() {
+  const [character, setCharacter] = useState({})
+
+  fetch('https://swapi.dev/api/people/1/').then(res => res.json()).then(character => {
+    setCharacter(character)
+  });
   return (
     <div className="App">
       <header className="App-header">
-        <Counter />
+
+        <StarWarsCharacter character={character}/>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
