@@ -2,9 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const StarWarsCharacter = ({ character }) => {
+
+    const {name, homeworld} = character;
     return (
-        <div>
-            {character.name}
+        <div data-testid="star-wars-character">
+            <p>
+                Name: {name}
+            </p>
+            <p>
+                <a href={homeworld}>Home World</a>
+            </p>
         </div>
     )
 }
