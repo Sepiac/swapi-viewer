@@ -12,6 +12,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <StarWarsCharacter character={character}/>
+        <StarWarsWorld world={world} />
       </header>
     </div>
   );
