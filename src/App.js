@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './App.css';
-import StarWarsCharacter from './Components/StarWarsCharacter';
+import {useGetStarWarsCharacter, useGetStarWarsWorld} from './hooks';
+import { StarWarsCharacter, StarWarsWorld } from './Components';
 
 function App() {
-  const [character, setCharacter] = useState({})
-
-  useEffect(() => {
-    fetch('https://swapi.dev/api/people/1/').then(res => res.json()).then(character => {
-      setCharacter(character)
-    });
-  }, [])
+  
+  const { character } = useGetStarWarsCharacter(1);
+  const { world } = useGetStarWarsWorld(character?.homeworld);
 
   return (
     <div className="App">
