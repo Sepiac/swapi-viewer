@@ -1,2 +1,1 @@
-export {default as useGetStarWarsCharacter} from './useGetStarWarsCharacter'
-export {default as useGetStarWarsWorld} from './useGetStarWarsWorld'
+export {default as useSwapiApi} from './useSwapiApi'
