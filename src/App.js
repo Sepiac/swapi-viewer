@@ -1,12 +1,16 @@
 import React from 'react';
 import './App.css';
-import {useGetStarWarsCharacter, useGetStarWarsWorld} from './hooks';
+import { useSwapiApi } from './hooks';
 import { StarWarsCharacter, StarWarsWorld } from './Components';
 
 function App() {
 
-  const { character } = useGetStarWarsCharacter(1);
-  const { world } = useGetStarWarsWorld(character?.homeworld);
+  const { data: character } = useSwapiApi({
+    entity: 'people',
+    id: 1
+  });
+
+  const { data: world } = useSwapiApi({ url: character?.homeworld });
 
   return (
     <div className="App">
