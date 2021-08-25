@@ -1,17 +1,49 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Container } from 'reactstrap'
+import { Container, Row, Col } from 'reactstrap'
 
 const StarWarsCharacter = ({ character }) => {
 
   const {
     name,
-    birth_year: birthYear
+    height,
+    mass,
+    hair_color: hairColor,
+    skin_color: skinColor,
+    eye_color: eyeColor,
+    birth_year: birthYear,
+    gender
   } = character;
   return (
     <Container data-testid="star-wars-character">
-      Name: {name}
-      Birth Year: {birthYear}
+      <Row>
+        <Col>
+          Name: {name}
+        </Col>
+        <Col>
+          Height: {height}
+        </Col>
+        <Col>
+          Mass: {mass}
+        </Col>
+        <Col>
+          Hair Color: {hairColor}
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          Skin Color: {skinColor}
+        </Col>
+        <Col>
+          Eye Color: {eyeColor}
+        </Col>
+        <Col>
+          Birth Year: {birthYear}
+        </Col>
+        <Col>
+          Gender: {gender}
+        </Col>
+      </Row>
     </Container>
   )
 }
