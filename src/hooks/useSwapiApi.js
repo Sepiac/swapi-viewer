@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 const useSwapiApi = ({ entity, id, url }) => {
-    const [data, setData] = useState({})
+    const [data, setData] = useState('')
 
     useEffect(() => {
         if(url || (entity && id)) {

@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { useSwapiApi } from './hooks';
 import { StarWarsCharacter, StarWarsWorld } from './Components';
+import { Spinner } from 'reactstrap';
 
 function App() {
 
@@ -15,8 +16,14 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <StarWarsCharacter character={character} />
-        <StarWarsWorld world={world} />
+        {character && world ? (
+          <>
+            <StarWarsCharacter character={character} />
+            {/* <StarWarsWorld world={world} /> */}
+          </>
+        ) : (
+          <Spinner color="primary" />
+        )}
       </header>
     </div>
   );
