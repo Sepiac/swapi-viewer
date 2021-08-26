@@ -1,9 +1,12 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import App from './App';
 
-test('renders a star wars character', () => {
+test('renders a star wars character', async () => {
   render(<App />);
-  const linkElement = screen.getByTestId('star-wars-character');
+  let linkElement;
+  await waitFor(() => {
+    linkElement = screen.getByTestId('star-wars-character');
+  });
   expect(linkElement).toBeInTheDocument();
 });

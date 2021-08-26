@@ -27,7 +27,7 @@ const StarWarsCharacter = ({ character }) => {
   return (
     <>
       {!isEmpty(character) ? (
-        <Card>
+        <Card data-testid="star-wars-character">
           <CardHeader>{name}</CardHeader>
           <CardBody>
             <CardTitle tag="h5">Description</CardTitle>
