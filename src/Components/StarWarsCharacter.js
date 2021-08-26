@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Container, Row, Col } from 'reactstrap'
+import { Card, CardHeader, CardBody, CardTitle, CardText, CardFooter } from 'reactstrap'
 
 const StarWarsCharacter = ({ character }) => {
 
@@ -14,37 +14,29 @@ const StarWarsCharacter = ({ character }) => {
     birth_year: birthYear,
     gender
   } = character;
+
+  const getPronoun = () => {
+    return gender === 'male' ? 'he' : gender === 'female' ? 'she' : 'they';
+  }
+
+  const capitalizeFirstLetter = (string='') => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   return (
-    <Container data-testid="star-wars-character">
-      <Row>
-        <Col>
-          Name: {name}
-        </Col>
-        <Col>
-          Height: {height}
-        </Col>
-        <Col>
-          Mass: {mass}
-        </Col>
-        <Col>
-          Hair Color: {hairColor}
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          Skin Color: {skinColor}
-        </Col>
-        <Col>
-          Eye Color: {eyeColor}
-        </Col>
-        <Col>
-          Birth Year: {birthYear}
-        </Col>
-        <Col>
-          Gender: {gender}
-        </Col>
-      </Row>
-    </Container>
+    <Card>
+      <CardHeader>{name}</CardHeader>
+      <CardBody>
+        <CardTitle tag="h5">Description</CardTitle>
+        <CardText>
+          {capitalizeFirstLetter(name)} has {hairColor} hair with {skinColor} skin and {eyeColor} eyes.
+        </CardText>
+        <CardText>
+          {capitalizeFirstLetter(getPronoun())} is {height}cm tall and weighs {mass} kilograms.
+        </CardText>
+      </CardBody>
+      <CardFooter>born {birthYear}</CardFooter>
+    </Card>
   )
 }
 
