@@ -27,7 +27,10 @@
       "react-app/jest"
     ],
     "rules": {
-      "react/boolean-prop-naming": ["error", {}],
+      "react/boolean-prop-naming": [
+        "error",
+        {}
+      ],
       "react/no-unused-prop-types": "error"
     },
     "parserOptions": {
