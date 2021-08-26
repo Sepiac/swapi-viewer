@@ -22,7 +22,7 @@ function App() {
     <div className="App">
       <Container style={{'marginTop': '25px'}}>
         <div>
-          <Nav tabs>
+          <Nav tabs style={{'marginBottom': '25px'}}>
             <NavItem>
               <NavLink
                 className={classnames({ active: activeTab === '1' })}
