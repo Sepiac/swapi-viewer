@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import './App.css';
 import { useSwapiApi } from './hooks';
 import { StarWarsCharacter } from './Components';
-import { Container, Nav, NavItem, NavLink, TabContent, TabPane, Row, Col, Card, CardTitle, CardText, Button } from 'reactstrap';
+import { Container, Nav, NavItem, NavLink, TabContent, TabPane, Row, Col, Card, CardTitle, CardText, Button, Input, Form, FormGroup, Label, FormText } from 'reactstrap';
 import classnames from 'classnames';
 
 function App() {
 
   const [activeTab, setActiveTab] = useState('1');
+
+  const [characterId, setCharacterId] = useState('1');
 
   const toggle = tab => {
     if(activeTab !== tab) setActiveTab(tab);
@@ -15,7 +17,7 @@ function App() {
 
   const { data: character } = useSwapiApi({
     entity: 'people',
-    id: 1
+    id: characterId
   });
 
   return (
@@ -42,6 +44,14 @@ function App() {
           </Nav>
           <TabContent activeTab={activeTab}>
             <TabPane tabId="1">
+              <Form style={{textAlign: 'left', marginBottom: '25px'}}>
+                <FormGroup>
+                  <Label htmlFor="character-id"> Character ID</Label>
+                  <Input id="character-id" value={characterId} onChange={e => {
+                    setCharacterId(e.target.value)
+                  }} />
+                </FormGroup>
+              </Form>
               <Row>
                 <Col sm="12">
                   <StarWarsCharacter character={character} />
