@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Card, CardHeader, CardBody, CardTitle, CardText, CardFooter, Spinner } from 'reactstrap'
+import { isEmpty } from 'lodash'
 
 const StarWarsCharacter = ({ character }) => {
 
@@ -25,7 +26,7 @@ const StarWarsCharacter = ({ character }) => {
 
   return (
     <>
-      {character ? (
+      {!isEmpty(character) ? (
         <Card>
           <CardHeader>{name}</CardHeader>
           <CardBody>
