@@ -12,7 +12,7 @@ function App() {
   const [characterId, setCharacterId] = useState('1');
 
   const toggle = tab => {
-    if(activeTab !== tab) setActiveTab(tab);
+    if (activeTab !== tab) setActiveTab(tab);
   }
 
   const { data: character } = useSwapiApi({
@@ -22,9 +22,9 @@ function App() {
 
   return (
     <div className="App">
-      <Container style={{'marginTop': '25px'}}>
+      <Container style={{ 'marginTop': '25px' }}>
         <div>
-          <Nav tabs style={{'marginBottom': '25px'}}>
+          <Nav tabs style={{ 'marginBottom': '25px' }}>
             <NavItem>
               <NavLink
                 className={classnames({ active: activeTab === '1' })}
@@ -44,7 +44,7 @@ function App() {
           </Nav>
           <TabContent activeTab={activeTab}>
             <TabPane tabId="1">
-              <Form style={{textAlign: 'left', marginBottom: '25px'}}>
+              <Form style={{ textAlign: 'left', marginBottom: '25px' }}>
                 <FormGroup>
                   <Label htmlFor="character-id"> Character ID</Label>
                   <Input id="character-id" value={characterId} onChange={e => {
