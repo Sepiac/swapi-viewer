@@ -32,7 +32,7 @@ const StarWarsCharacter = ({ character }) => {
           {capitalizeFirstLetter(name)} has {hairColor} hair with {skinColor} skin and {eyeColor} eyes.
         </CardText>
         <CardText>
-          {capitalizeFirstLetter(getPronoun())} is {height}cm tall and weighs {mass} kilograms.
+          {capitalizeFirstLetter(getPronoun())} {(gender !== 'male' && gender !== 'female') ? 'are' : 'is'} {height}cm tall and weighs {mass} kilograms.
         </CardText>
       </CardBody>
       <CardFooter>born {birthYear}</CardFooter>
