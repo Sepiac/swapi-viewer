@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import { useSwapiApi } from './hooks';
 import { StarWarsCharacter } from './Components';
-import { Container, Nav, NavItem, NavLink, TabContent, TabPane, Row, Col, Card, CardTitle, CardText, Button, Spinner } from 'reactstrap';
+import { Container, Nav, NavItem, NavLink, TabContent, TabPane, Row, Col, Card, CardTitle, CardText, Button } from 'reactstrap';
 import classnames from 'classnames';
 
 function App() {
