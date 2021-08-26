@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div className="App">
-      <Container style={{'margin-top': '25px'}}>
+      <Container style={{'marginTop': '25px'}}>
         <div>
           <Nav tabs>
             <NavItem>
