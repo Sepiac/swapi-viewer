@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import { useSwapiApi } from './hooks';
-import { StarWarsCharacter, SwapiPlanet } from './Components';
+import { Swapiperson, SwapiPlanet } from './Components';
 import { Container, Nav, NavItem, NavLink, TabContent, TabPane, Row, Col, Card, CardTitle, CardText, Button, Input, Form, FormGroup, Label, FormText } from 'reactstrap';
 import classnames from 'classnames';
 
@@ -9,7 +9,7 @@ function App() {
 
   const [activeTab, setActiveTab] = useState('1');
 
-  const [characterId, setCharacterId] = useState('1');
+  const [personId, setPersonId] = useState('1');
 
   const [planetId, setPlanetId] = useState('1')
 
@@ -17,9 +17,9 @@ function App() {
     if (activeTab !== tab) setActiveTab(tab);
   }
 
-  const { data: character } = useSwapiApi({
+  const { data: person } = useSwapiApi({
     entity: 'people',
-    id: characterId
+    id: personId
   });
 
   const { data: planet } = useSwapiApi({
@@ -54,14 +54,14 @@ function App() {
               <Form style={{ textAlign: 'left', marginBottom: '25px' }}>
                 <FormGroup>
                   <Label htmlFor="character-id"> Character ID</Label>
-                  <Input id="character-id" value={characterId} onChange={e => {
-                    setCharacterId(e.target.value)
+                  <Input id="character-id" value={personId} onChange={e => {
+                    setPersonId(e.target.value)
                   }} />
                 </FormGroup>
               </Form>
               <Row>
                 <Col sm="12">
-                  <StarWarsCharacter character={character} />
+                  <Swapiperson person={person} />
                 </Col>
               </Row>
             </TabPane>
