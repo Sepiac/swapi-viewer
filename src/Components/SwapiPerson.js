@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Card, CardHeader, CardBody, CardTitle, CardText, CardFooter, Spinner } from 'reactstrap'
 import { isEmpty } from 'lodash'
 
-const StarWarsCharacter = ({ character }) => {
+const SwapiPerson = ({ person }) => {
 
   const {
     name,
@@ -14,7 +14,7 @@ const StarWarsCharacter = ({ character }) => {
     eye_color: eyeColor,
     birth_year: birthYear,
     gender
-  } = character;
+  } = person;
 
   const getPronoun = () => {
     return gender === 'male' ? 'he' : gender === 'female' ? 'she' : 'they';
@@ -26,7 +26,7 @@ const StarWarsCharacter = ({ character }) => {
 
   return (
     <>
-      {!isEmpty(character) ? (
+      {!isEmpty(person) ? (
         <Card data-testid="star-wars-character">
           <CardHeader>{name}</CardHeader>
           <CardBody>
@@ -46,8 +46,8 @@ const StarWarsCharacter = ({ character }) => {
   )
 }
 
-StarWarsCharacter.propTypes = {
-  character: PropTypes.object
+SwapiPerson.propTypes = {
+  person: PropTypes.object
 }
 
-export default StarWarsCharacter
+export default SwapiPerson
