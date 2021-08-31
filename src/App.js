@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import { useSwapiApi } from './hooks';
-import { StarWarsCharacter, StarWarsWorld } from './Components';
+import { StarWarsCharacter, SwapiPlanet } from './Components';
 import { Container, Nav, NavItem, NavLink, TabContent, TabPane, Row, Col, Card, CardTitle, CardText, Button, Input, Form, FormGroup, Label, FormText } from 'reactstrap';
 import classnames from 'classnames';
 
@@ -11,7 +11,7 @@ function App() {
 
   const [characterId, setCharacterId] = useState('1');
 
-  const [worldId, setWorldId] = useState('1')
+  const [planetId, setPlanetId] = useState('1')
 
   const toggle = tab => {
     if (activeTab !== tab) setActiveTab(tab);
@@ -22,9 +22,9 @@ function App() {
     id: characterId
   });
 
-  const { data: world } = useSwapiApi({
+  const { data: planet } = useSwapiApi({
     entity: 'planets',
-    id: worldId
+    id: planetId
   });
 
   return (
@@ -45,7 +45,7 @@ function App() {
                 className={classnames({ active: activeTab === '2' })}
                 onClick={() => { toggle('2'); }}
               >
-                Worlds
+                Planets
               </NavLink>
             </NavItem>
           </Nav>
@@ -67,13 +67,13 @@ function App() {
             </TabPane>
             <TabPane tabId="2">
               <Form style={{ textAlign: 'left', marginBottom: '25px' }}>
-                <Label htmlFor="world-id">World ID</Label>
-                <Input id="world-id" value={worldId} onChange={e => {
-                  setWorldId(e.target.value);
+                <Label htmlFor="world-id">Planet ID</Label>
+                <Input id="world-id" value={planetId} onChange={e => {
+                  setPlanetId(e.target.value);
                 }}></Input>
               </Form>
               <Col sm="12">
-                <StarWarsWorld world={world} />
+                <SwapiPlanet planet={planet} />
               </Col>
             </TabPane>
           </TabContent>

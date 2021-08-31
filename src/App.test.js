@@ -7,6 +7,6 @@ test('renders a star wars character', async () => {
   let linkElement;
   await waitFor(() => {
     linkElement = screen.getByTestId('star-wars-character');
-  });
+  }, {timeout: 1000});
   expect(linkElement).toBeInTheDocument();
 });
