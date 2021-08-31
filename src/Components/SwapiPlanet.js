@@ -4,7 +4,7 @@ import { Card, CardHeader, CardBody, CardTitle, CardText, CardFooter, Spinner } 
 import { isEmpty } from 'lodash';
 import { startsWithVowel } from '../utils';
 
-const StarWarsWorld = ({ world }) => {
+const SwapiPlanet = ({ planet }) => {
   const {
     name,
     rotation_period: rotationPeriod,
@@ -15,10 +15,10 @@ const StarWarsWorld = ({ world }) => {
     terrain,
     surface_water: surfaceWater,
     population,
-  } = world;
+  } = planet;
   return (
     <>
-      {!isEmpty(world) ? (
+      {!isEmpty(planet) ? (
         <Card data-testid="star-wars-character">
           <CardHeader>{name}</CardHeader>
           <CardBody>
@@ -36,8 +36,8 @@ const StarWarsWorld = ({ world }) => {
   )
 }
 
-StarWarsWorld.propTypes = {
-  world: PropTypes.object
+SwapiPlanet.propTypes = {
+  planet: PropTypes.object
 }
 
-export default StarWarsWorld
+export default SwapiPlanet
