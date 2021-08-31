@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import { useSwapiApi } from './hooks';
-import { StarWarsCharacter } from './Components';
+import { StarWarsCharacter, StarWarsWorld } from './Components';
 import { Container, Nav, NavItem, NavLink, TabContent, TabPane, Row, Col, Card, CardTitle, CardText, Button, Input, Form, FormGroup, Label, FormText } from 'reactstrap';
 import classnames from 'classnames';
 
@@ -11,6 +11,8 @@ function App() {
 
   const [characterId, setCharacterId] = useState('1');
 
+  const [worldId, setWorldId] = useState('1')
+
   const toggle = tab => {
     if (activeTab !== tab) setActiveTab(tab);
   }
@@ -18,6 +20,11 @@ function App() {
   const { data: character } = useSwapiApi({
     entity: 'people',
     id: characterId
+  });
+
+  const { data: world } = useSwapiApi({
+    entity: 'planets',
+    id: worldId
   });
 
   return (
@@ -59,22 +66,15 @@ function App() {
               </Row>
             </TabPane>
             <TabPane tabId="2">
-              <Row>
-                <Col sm="6">
-                  <Card body>
-                    <CardTitle>Special Title Treatment</CardTitle>
-                    <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                    <Button>Go somewhere</Button>
-                  </Card>
-                </Col>
-                <Col sm="6">
-                  <Card body>
-                    <CardTitle>Special Title Treatment</CardTitle>
-                    <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                    <Button>Go somewhere</Button>
-                  </Card>
-                </Col>
-              </Row>
+              <Form style={{ textAlign: 'left', marginBottom: '25px' }}>
+                <Label htmlFor="world-id">World ID</Label>
+                <Input id="world-id" value={worldId} onChange={e => {
+                  setWorldId(e.target.value);
+                }}></Input>
+              </Form>
+              <Col sm="12">
+                <StarWarsWorld world={world} />
+              </Col>
             </TabPane>
           </TabContent>
         </div>
