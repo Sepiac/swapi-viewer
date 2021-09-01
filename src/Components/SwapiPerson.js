@@ -29,7 +29,7 @@ const SwapiPerson = ({ person }) => {
   return (
     <>
       {!isEmpty(person) ? (
-        <Card data-testid="star-wars-character">
+        <Card data-testid="swapi-person">
           {detail ? (
             <CardBody>
               <CardText>
