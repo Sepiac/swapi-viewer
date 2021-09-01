@@ -4,7 +4,7 @@ import { Card, CardHeader, CardBody, CardTitle, CardText, CardFooter, Spinner } 
 import { isEmpty } from 'lodash';
 import { startsWithVowel } from '../utils';
 
-const SwapiPlanet = ({ planet }) => {
+const SwapiPlanet = ({ planet={} }) => {
   const {
     name,
     rotation_period: rotationPeriod,
@@ -30,21 +30,19 @@ const SwapiPlanet = ({ planet }) => {
             </CardBody>
           ) : (
             <>
-              <CardHeader>{name}</CardHeader>
+              <CardHeader data-testid="header-section">{name}</CardHeader>
               <CardBody>
                 <CardTitle tag="h5">Description</CardTitle>
-                <CardText>
+                <CardText data-testid="description-section-1">
                   {name} is a {terrain} planet with {startsWithVowel(climate) ? 'an' : 'a'} {climate} climate, a day length of {rotationPeriod} hours, and year length of {orbitalPeriod} days.
                 </CardText>
-                <CardText>
-                </CardText>
               </CardBody>
-              <CardFooter>{name}: {climate}, {terrain}</CardFooter>
+              <CardFooter data-testid="footer-section">{name}: {climate}, {terrain}</CardFooter>
             </>
           )}
 
         </Card>
-      ) : (<Spinner color="primary" />)}
+      ) : (<Spinner color="primary" data-testid="loading-indicator" />)}
     </>
   )
 }
