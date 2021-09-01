@@ -21,7 +21,7 @@ const SwapiPlanet = ({ planet }) => {
   return (
     <>
       {!isEmpty(planet) ? (
-        <Card data-testid="star-wars-character">
+        <Card data-testid="swapi-planet">
           {detail ? (
             <CardBody>
               <CardText>
