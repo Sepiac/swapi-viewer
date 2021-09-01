@@ -16,20 +16,33 @@ const SwapiPlanet = ({ planet }) => {
     surface_water: surfaceWater,
     population,
   } = planet;
+
+  const { detail } = planet;
   return (
     <>
       {!isEmpty(planet) ? (
         <Card data-testid="star-wars-character">
-          <CardHeader>{name}</CardHeader>
-          <CardBody>
-            <CardTitle tag="h5">Description</CardTitle>
-            <CardText>
-              {name} is a {terrain} planet with {startsWithVowel(climate) ? 'an' : 'a'} {climate} climate, a day length of {rotationPeriod} hours, and year length of {orbitalPeriod} days.
-            </CardText>
-            <CardText>
-            </CardText>
-          </CardBody>
-          <CardFooter>{name}: {climate}, {terrain}</CardFooter>
+          {detail ? (
+            <CardBody>
+              <CardText>
+                {detail}
+              </CardText>
+            </CardBody>
+          ) : (
+            <>
+              <CardHeader>{name}</CardHeader>
+              <CardBody>
+                <CardTitle tag="h5">Description</CardTitle>
+                <CardText>
+                  {name} is a {terrain} planet with {startsWithVowel(climate) ? 'an' : 'a'} {climate} climate, a day length of {rotationPeriod} hours, and year length of {orbitalPeriod} days.
+                </CardText>
+                <CardText>
+                </CardText>
+              </CardBody>
+              <CardFooter>{name}: {climate}, {terrain}</CardFooter>
+            </>
+          )}
+
         </Card>
       ) : (<Spinner color="primary" />)}
     </>

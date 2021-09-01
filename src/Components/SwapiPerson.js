@@ -16,6 +16,8 @@ const SwapiPerson = ({ person }) => {
     gender
   } = person;
 
+  const { detail } = person;
+
   const getPronoun = () => {
     return gender === 'male' ? 'he' : gender === 'female' ? 'she' : 'they';
   }
@@ -28,17 +30,27 @@ const SwapiPerson = ({ person }) => {
     <>
       {!isEmpty(person) ? (
         <Card data-testid="star-wars-character">
-          <CardHeader>{name}</CardHeader>
-          <CardBody>
-            <CardTitle tag="h5">Description</CardTitle>
-            <CardText>
-              {capitalizeFirstLetter(name)} has {hairColor} hair with {skinColor} skin and {eyeColor} eyes.
-            </CardText>
-            <CardText>
-              {capitalizeFirstLetter(getPronoun())} {(gender !== 'male' && gender !== 'female') ? 'are' : 'is'} {height}cm tall and weighs {mass} kilograms.
-            </CardText>
-          </CardBody>
-          <CardFooter>born {birthYear}</CardFooter>
+          {detail ? (
+            <CardBody>
+              <CardText>
+                {detail}
+              </CardText>
+            </CardBody>
+          ) : (
+            <>
+              <CardHeader>{name}</CardHeader>
+              <CardBody>
+                <CardTitle tag="h5">Description</CardTitle>
+                <CardText>
+                  {capitalizeFirstLetter(name)} has {hairColor} hair with {skinColor} skin and {eyeColor} eyes.
+                </CardText>
+                <CardText>
+                  {capitalizeFirstLetter(getPronoun())} {(gender !== 'male' && gender !== 'female') ? 'are' : 'is'} {height}cm tall and weighs {mass} kilograms.
+                </CardText>
+              </CardBody>
+              <CardFooter>born {birthYear}</CardFooter>
+            </>
+          )}
         </Card>
       ) : (<Spinner color="primary" />)}
     </>
