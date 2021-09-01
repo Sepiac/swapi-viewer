@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Card, CardHeader, CardBody, CardTitle, CardText, CardFooter, Spinner } from 'reactstrap'
 import { isEmpty } from 'lodash'
 
-const SwapiPerson = ({ person }) => {
+const SwapiPerson = ({ person={} }) => {
 
   const {
     name,
@@ -38,21 +38,21 @@ const SwapiPerson = ({ person }) => {
             </CardBody>
           ) : (
             <>
-              <CardHeader>{name}</CardHeader>
+              <CardHeader data-testid="header-section">{name}</CardHeader>
               <CardBody>
                 <CardTitle tag="h5">Description</CardTitle>
-                <CardText>
+                <CardText data-testid="description-section-1">
                   {capitalizeFirstLetter(name)} has {hairColor} hair with {skinColor} skin and {eyeColor} eyes.
                 </CardText>
-                <CardText>
+                <CardText data-testid="description-section-2">
                   {capitalizeFirstLetter(getPronoun())} {(gender !== 'male' && gender !== 'female') ? 'are' : 'is'} {height}cm tall and weighs {mass} kilograms.
                 </CardText>
               </CardBody>
-              <CardFooter>born {birthYear}</CardFooter>
+              <CardFooter data-testid="footer-section">born {birthYear}</CardFooter>
             </>
           )}
         </Card>
-      ) : (<Spinner color="primary" />)}
+      ) : (<Spinner color="primary" data-testid="loading-indicator" />)}
     </>
 
   )
