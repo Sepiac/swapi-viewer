@@ -1,3 +1,8 @@
+# SWAPI Viewer
+
+This project is a simple application for viewing the contents of the Star Wars API (SWAPI).\
+There is no real goal for this project outside of getting some extra react practice, so any par of this project is subject to radical change at any time.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
