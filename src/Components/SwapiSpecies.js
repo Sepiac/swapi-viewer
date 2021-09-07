@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card, CardHeader, CardBody, CardTitle, CardText, CardFooter, Spinner } from 'reactstrap'
 import PropTypes from 'prop-types'
+import { startsWithVowel } from '../utils'
 
 const SwapiSpecies = props => {
   const { species } = props;
@@ -36,7 +37,7 @@ const SwapiSpecies = props => {
               {name}s are a {designation} species with an average lifespan of {averageLifespan} years.
             </CardText>
             <CardText data-testid="description-section-2">
-              The average height of a(n) {name} individual is {averageHeight}cm.
+              The average height of {startsWithVowel(name) ? 'an' : 'a'} {name} individual is {averageHeight}cm.
             </CardText>
           </CardBody>
           <CardFooter data-testid="footer-section">{name}: ({classification})</CardFooter>
