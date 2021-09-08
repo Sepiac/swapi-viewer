@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, CardHeader, CardBody, CardTitle, CardText, CardFooter, Spinner } from 'reactstrap'
+import { Card, CardHeader, CardBody, CardTitle, CardText, CardFooter } from 'reactstrap'
 import PropTypes from 'prop-types'
 import { startsWithVowel } from '../utils'
 
