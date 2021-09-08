@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, Nav, NavItem, NavLink, TabContent, TabPane, Row, Col, Card, CardTitle, CardText, Button, Input, Form, FormGroup, Label, FormText } from 'reactstrap';
+import { Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
 import classnames from 'classnames'
 
 const EasyTabs = ({ children }) => {

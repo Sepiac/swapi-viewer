@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
 import { useSwapiApi } from './hooks';
-import { Swapiperson, SwapiPlanet } from './Components';
-import { Container, Nav, NavItem, NavLink, TabContent, TabPane, Row, Col, Card, CardTitle, CardText, Button, Input, Form, FormGroup, Label, FormText } from 'reactstrap';
-import classnames from 'classnames';
-import SwapiSpecies from './Components/SwapiSpecies';
-import { EasyTabs, EasyTab } from './Components/EasyTabs';
+import { Swapiperson, SwapiPlanet, SwapiSpecies, EasyTabs, EasyTab } from './Components';
+import { Container, Row, Col, Input, Form, FormGroup, Label } from 'reactstrap';
 
 function App() {
 
