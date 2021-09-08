@@ -3,18 +3,6 @@ import { render, screen } from '@testing-library/react'
 import SwapiPerson from '../SwapiPerson'
 import personResponse from './person.response.json'
 
-describe('when no data is passed', () => {
-  it('should render loading indicator when nothing is passed', () => {
-    render (<SwapiPerson />);
-    expect(screen.getByTestId('loading-indicator')).toBeInTheDocument();
-  })
-  
-  it('should render when passed an empty object', () => {
-    render (<SwapiPerson person={{}}/>);
-    expect(screen.getByTestId('loading-indicator')).toBeInTheDocument();
-  })
-});
-
 describe('header', () => {
   it('should render name in header', () => {
     render(<SwapiPerson person={personResponse} />);

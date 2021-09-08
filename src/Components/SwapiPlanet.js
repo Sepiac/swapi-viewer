@@ -4,7 +4,7 @@ import { Card, CardHeader, CardBody, CardTitle, CardText, CardFooter, Spinner } 
 import { isEmpty } from 'lodash';
 import { startsWithVowel } from '../utils';
 
-const SwapiPlanet = ({ planet={} }) => {
+const SwapiPlanet = ({ planet = {} }) => {
   const {
     name,
     rotation_period: rotationPeriod,
@@ -17,33 +17,17 @@ const SwapiPlanet = ({ planet={} }) => {
     population,
   } = planet;
 
-  const { detail } = planet;
   return (
-    <>
-      {!isEmpty(planet) ? (
-        <Card data-testid="swapi-planet">
-          {detail ? (
-            <CardBody>
-              <CardText>
-                {detail}
-              </CardText>
-            </CardBody>
-          ) : (
-            <>
-              <CardHeader data-testid="header-section">{name}</CardHeader>
-              <CardBody>
-                <CardTitle tag="h5">Description</CardTitle>
-                <CardText data-testid="description-section-1">
-                  {name} is a {terrain} planet with {startsWithVowel(climate) ? 'an' : 'a'} {climate} climate, a day length of {rotationPeriod} hours, and year length of {orbitalPeriod} days.
-                </CardText>
-              </CardBody>
-              <CardFooter data-testid="footer-section">{name}: {climate}, {terrain}</CardFooter>
-            </>
-          )}
-
-        </Card>
-      ) : (<Spinner color="primary" data-testid="loading-indicator" />)}
-    </>
+      <Card data-testid="swapi-planet">
+        <CardHeader data-testid="header-section">{name}</CardHeader>
+        <CardBody>
+          <CardTitle tag="h5">Description</CardTitle>
+          <CardText data-testid="description-section-1">
+            {name} is a {terrain} planet with {startsWithVowel(climate) ? 'an' : 'a'} {climate} climate, a day length of {rotationPeriod} hours, and year length of {orbitalPeriod} days.
+          </CardText>
+        </CardBody>
+        <CardFooter data-testid="footer-section">{name}: {climate}, {terrain}</CardFooter>
+      </Card>
   )
 }
 

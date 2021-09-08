@@ -4,7 +4,7 @@ import { Card, CardHeader, CardBody, CardTitle, CardText, CardFooter, Spinner } 
 import { isEmpty } from 'lodash'
 import { capitalizeFirstLetter } from '../utils'
 
-const SwapiPerson = ({ person={} }) => {
+const SwapiPerson = ({ person = {} }) => {
 
   const {
     name,
@@ -17,41 +17,24 @@ const SwapiPerson = ({ person={} }) => {
     gender
   } = person;
 
-  const { detail } = person;
-
   const getPronoun = () => {
     return gender === 'male' ? 'he' : gender === 'female' ? 'she' : 'they';
   }
 
   return (
-    <>
-      {!isEmpty(person) ? (
-        <Card data-testid="swapi-person">
-          {detail ? (
-            <CardBody>
-              <CardText>
-                {detail}
-              </CardText>
-            </CardBody>
-          ) : (
-            <>
-              <CardHeader data-testid="header-section">{name}</CardHeader>
-              <CardBody>
-                <CardTitle tag="h5">Description</CardTitle>
-                <CardText data-testid="description-section-1">
-                  {capitalizeFirstLetter(name)} has {hairColor} hair with {skinColor} skin and {eyeColor} eyes.
-                </CardText>
-                <CardText data-testid="description-section-2">
-                  {capitalizeFirstLetter(getPronoun())} {(gender !== 'male' && gender !== 'female') ? 'are' : 'is'} {height}cm tall and weighs {mass} kilograms.
-                </CardText>
-              </CardBody>
-              <CardFooter data-testid="footer-section">born {birthYear}</CardFooter>
-            </>
-          )}
-        </Card>
-      ) : (<Spinner color="primary" data-testid="loading-indicator" />)}
-    </>
-
+    <Card data-testid="swapi-person">
+      <CardHeader data-testid="header-section">{name}</CardHeader>
+      <CardBody>
+        <CardTitle tag="h5">Description</CardTitle>
+        <CardText data-testid="description-section-1">
+          {capitalizeFirstLetter(name)} has {hairColor} hair with {skinColor} skin and {eyeColor} eyes.
+        </CardText>
+        <CardText data-testid="description-section-2">
+          {capitalizeFirstLetter(getPronoun())} {(gender !== 'male' && gender !== 'female') ? 'are' : 'is'} {height}cm tall and weighs {mass} kilograms.
+        </CardText>
+      </CardBody>
+      <CardFooter data-testid="footer-section">born {birthYear}</CardFooter>
+    </Card>
   )
 }
 
