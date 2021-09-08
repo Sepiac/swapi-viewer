@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import './App.css';
-import { useSwapiApi } from './hooks';
-import { Swapiperson, SwapiPlanet, SwapiSpecies, EasyTabs, EasyTab } from './Components';
-import { Container, Row, Col, Input, Form, FormGroup, Label } from 'reactstrap';
+import React, { useState } from 'react'
+import './App.css'
+import { useSwapiApi } from './hooks'
+import { Swapiperson, SwapiPlanet, SwapiSpecies, EasyTabs, EasyTab } from './Components'
+import { Container, Row, Col, Input, Form, FormGroup, Label } from 'reactstrap'
 
 function App() {
 
@@ -10,19 +10,19 @@ function App() {
   const { data: person } = useSwapiApi({
     entity: 'people',
     id: personId
-  });
+  })
 
   const [planetId, setPlanetId] = useState('1')
   const { data: planet } = useSwapiApi({
     entity: 'planets',
     id: planetId
-  });
+  })
 
   const [speciesId, setSpeciesId] = useState('1')
   const { data: species } = useSwapiApi({
     entity: 'species',
     id: speciesId
-  });
+  })
 
   return (
     <div className="App">
@@ -68,7 +68,7 @@ function App() {
         </EasyTabs>
       </Container>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
