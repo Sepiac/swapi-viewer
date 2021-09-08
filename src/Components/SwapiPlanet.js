@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Card, CardHeader, CardBody, CardTitle, CardText, CardFooter } from 'reactstrap'
-import { startsWithVowel } from '../utils';
+import { startsWithVowel } from '../utils'
 
 const SwapiPlanet = ({ planet = {} }) => {
   const {
@@ -14,7 +14,7 @@ const SwapiPlanet = ({ planet = {} }) => {
     terrain,
     surface_water: surfaceWater,
     population,
-  } = planet;
+  } = planet
 
   return (
       <Card data-testid="swapi-planet">
