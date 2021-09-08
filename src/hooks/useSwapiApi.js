@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 
 const useSwapiApi = ({ entity, id, url }) => {
     const [data, setData] = useState({})
@@ -13,7 +13,7 @@ const useSwapiApi = ({ entity, id, url }) => {
 
     return {
         data
-    };
-};
+    }
+}
 
-export default useSwapiApi;
+export default useSwapiApi
