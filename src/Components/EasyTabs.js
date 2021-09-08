@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import { Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
+import { Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap'
 import classnames from 'classnames'
 
 const EasyTabs = ({ children }) => {
-  const [activeTab, setActiveTab] = useState('0');
+  const [activeTab, setActiveTab] = useState('0')
 
   const toggle = tab => {
-    if (activeTab !== tab) setActiveTab(tab);
+    if (activeTab !== tab) setActiveTab(tab)
   }
 
   return (
