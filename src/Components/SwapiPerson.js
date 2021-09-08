@@ -14,10 +14,10 @@ const SwapiPerson = ({ person = {} }) => {
     eye_color: eyeColor,
     birth_year: birthYear,
     gender
-  } = person;
+  } = person
 
   const getPronoun = () => {
-    return gender === 'male' ? 'he' : gender === 'female' ? 'she' : 'they';
+    return gender === 'male' ? 'he' : gender === 'female' ? 'she' : 'they'
   }
 
   return (
