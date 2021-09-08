@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { startsWithVowel } from '../utils'
 
 const SwapiSpecies = props => {
-  const { species } = props;
+  const { species } = props
 
   const {
     name,
@@ -16,7 +16,7 @@ const SwapiSpecies = props => {
     eye_colors: eyeColors,
     average_lifespan: averageLifespan,
     language,
-  } = species;
+  } = species
 
 
   return (
