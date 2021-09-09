@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useSwapiApi } from '../hooks'
 import { Container, Row, Col, Input, Form, FormGroup, Label, Spinner } from 'reactstrap'
 import { Swapiperson, SwapiPlanet, SwapiSpecies, EasyTabs, EasyTab } from '../Components'
+import SwapiStarhip from './SwapiStarship'
 
 export const SwapiTabView = () => {
   const [personId, setPersonId] = useState('1');
@@ -20,6 +21,12 @@ export const SwapiTabView = () => {
   const { data: species, isLoading: isSpeciesLoading } = useSwapiApi({
     entity: 'species',
     id: speciesId
+  })
+
+  const [starshipId, setStarshipId] = useState('1')
+  const { data: starship, isLoading: isStarshipLoading } = useSwapiApi({
+    entity: 'starships',
+    id: starshipId
   })
 
 
@@ -62,6 +69,17 @@ export const SwapiTabView = () => {
           </Form>
           <Col sm="12">
             {isSpeciesLoading ? <Spinner color="primary" /> : <SwapiSpecies species={species} />}
+          </Col>
+        </EasyTab>
+        <EasyTab label="Starships">
+          <Form style={{ textAlign: 'left', marginBottom: '25px' }}>
+            <Label htmlFor="starship-id">Starship ID</Label>
+            <Input id="starship-id" value={starshipId} onChange={e => {
+              setStarshipId(e.target.value);
+            }}></Input>
+          </Form>
+          <Col sm="12">
+            {isStarshipLoading ? <Spinner color="primary" /> : <SwapiStarhip starship={starship} />}
           </Col>
         </EasyTab>
       </EasyTabs>
