@@ -38,7 +38,7 @@ export const SwapiTabView = () => {
           </Form>
           <Row>
             <Col sm="12">
-              {isPersonLoading ? <Spinner /> : <Swapiperson person={person} />}
+              {isPersonLoading ? <Spinner color="primary" /> : <Swapiperson person={person} />}
             </Col>
           </Row>
         </EasyTab>
@@ -50,7 +50,7 @@ export const SwapiTabView = () => {
             }}></Input>
           </Form>
           <Col sm="12">
-            {isPlanetLoading ? <Spinner /> : <SwapiPlanet planet={planet} />}
+            {isPlanetLoading ? <Spinner color="primary" /> : <SwapiPlanet planet={planet} />}
           </Col>
         </EasyTab>
         <EasyTab label="Species">
@@ -61,7 +61,7 @@ export const SwapiTabView = () => {
             }}></Input>
           </Form>
           <Col sm="12">
-            {isSpeciesLoading ? <Spinner /> : <SwapiSpecies species={species} />}
+            {isSpeciesLoading ? <Spinner color="primary" /> : <SwapiSpecies species={species} />}
           </Col>
         </EasyTab>
       </EasyTabs>
