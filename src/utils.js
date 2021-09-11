@@ -1,3 +1,5 @@
+import moment from "moment";
+
 const startsWithVowel = string => {
   const vowels = 'aeiou';
   const nullSafeString = string || '';
@@ -9,4 +11,8 @@ const capitalizeFirstLetter = (string = '') => {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-export { startsWithVowel, capitalizeFirstLetter };
+const getFormattedDate = (dateString = '') => {
+  return moment(dateString).format('MM/DD/yyyy')
+}
+
+export { startsWithVowel, capitalizeFirstLetter, getFormattedDate };

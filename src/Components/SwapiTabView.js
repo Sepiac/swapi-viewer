@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useSwapiApi } from '../hooks'
 import { Container, Row, Col, Input, Form, FormGroup, Label, Spinner } from 'reactstrap'
-import { Swapiperson, SwapiPlanet, SwapiSpecies, SwapiStarhip, SwapiVehicle, EasyTabs, EasyTab } from '../Components'
+import { Swapiperson, SwapiPlanet, SwapiSpecies, SwapiStarhip, SwapiVehicle, SwapiFilm, EasyTabs, EasyTab } from '../Components'
 
 export const SwapiTabView = () => {
   const [personId, setPersonId] = useState('1');
@@ -32,6 +32,12 @@ export const SwapiTabView = () => {
   const { data: vehicle, isLoading: isVehicleLoading } = useSwapiApi({
     entity: 'vehicles',
     id: vehicleId
+  })
+
+  const [filmId, setFilmId] = useState('1')
+  const { data: film, isLoading: isFilmLoading} = useSwapiApi({
+    entity: 'films',
+    id: filmId
   })
 
 
@@ -96,6 +102,17 @@ export const SwapiTabView = () => {
           </Form>
           <Col sm="12">
             {isVehicleLoading ? <Spinner color="primary" /> : <SwapiVehicle vehicle={vehicle} />}
+          </Col>
+        </EasyTab>
+        <EasyTab label="Films">
+          <Form style={{ textAlign: 'left', marginBottom: '25px' }}>
+            <Label htmlFor="film-id">Film ID</Label>
+            <Input id="film-id" value={filmId} onChange={e => {
+              setFilmId(e.target.value);
+            }}></Input>
+          </Form>
+          <Col sm="12">
+            {isFilmLoading ? <Spinner color="primary" /> : <SwapiFilm film={film} />}
           </Col>
         </EasyTab>
       </EasyTabs>
