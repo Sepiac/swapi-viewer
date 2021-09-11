@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { useSwapiApi } from '../hooks'
 import { Container, Row, Col, Input, Form, FormGroup, Label, Spinner } from 'reactstrap'
-import { Swapiperson, SwapiPlanet, SwapiSpecies, EasyTabs, EasyTab } from '../Components'
-import SwapiStarhip from './SwapiStarship'
+import { Swapiperson, SwapiPlanet, SwapiSpecies, SwapiStarhip, SwapiVehicle, EasyTabs, EasyTab } from '../Components'
 
 export const SwapiTabView = () => {
   const [personId, setPersonId] = useState('1');
@@ -27,6 +26,12 @@ export const SwapiTabView = () => {
   const { data: starship, isLoading: isStarshipLoading } = useSwapiApi({
     entity: 'starships',
     id: starshipId
+  })
+
+  const [vehicleId, setVehicleId] = useState('1')
+  const { data: vehicle, isLoading: isVehicleLoading } = useSwapiApi({
+    entity: 'vehicles',
+    id: vehicleId
   })
 
 
@@ -80,6 +85,17 @@ export const SwapiTabView = () => {
           </Form>
           <Col sm="12">
             {isStarshipLoading ? <Spinner color="primary" /> : <SwapiStarhip starship={starship} />}
+          </Col>
+        </EasyTab>
+        <EasyTab label="Vehicles">
+          <Form style={{ textAlign: 'left', marginBottom: '25px' }}>
+            <Label htmlFor="vehicle-id">Vehicle ID</Label>
+            <Input id="vehicle-id" value={vehicleId} onChange={e => {
+              setVehicleId(e.target.value);
+            }}></Input>
+          </Form>
+          <Col sm="12">
+            {isVehicleLoading ? <Spinner color="primary" /> : <SwapiVehicle vehicle={vehicle} />}
           </Col>
         </EasyTab>
       </EasyTabs>

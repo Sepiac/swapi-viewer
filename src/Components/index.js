@@ -1,4 +1,6 @@
 export { default as Swapiperson } from './SwapiPerson'
 export { default as SwapiPlanet } from './SwapiPlanet'
 export { default as SwapiSpecies } from './SwapiSpecies'
+export { default as SwapiStarhip } from './SwapiStarship'
+export { default as SwapiVehicle } from './SwapiVehicle'
 export {EasyTab, EasyTabs} from './EasyTabs'
