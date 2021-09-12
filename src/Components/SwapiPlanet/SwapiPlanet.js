@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Card, CardHeader, CardBody, CardTitle, CardText, CardFooter } from 'reactstrap'
-import { startsWithVowel } from '../utils'
+import { startsWithVowel } from '../../utils'
 
 const SwapiPlanet = ({ planet = {} }) => {
   const {
