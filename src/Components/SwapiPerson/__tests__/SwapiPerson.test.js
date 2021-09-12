@@ -15,17 +15,9 @@ describe('description-section-1', () => {
     render(<SwapiPerson person={personResponse} />);
   });
 
-  it('should render the name', () => {
-    expect(screen.getByTestId('description-section-1')).toHaveTextContent('Luke Skywalker');
-  });
-  it('should render the hair color', () => {
-    expect(screen.getByTestId('description-section-1')).toHaveTextContent('blond hair');
-  });
-  it('should render the skin color', () => {
-    expect(screen.getByTestId('description-section-1')).toHaveTextContent('fair skin');
-  });
-  it('should render the eye color', () => {
-    expect(screen.getByTestId('description-section-1')).toHaveTextContent('blue eyes');
+  it('should render the correct message', () => {
+    const message = 'Luke Skywalker has blond hair with fair skin and blue eyes.'
+    expect(screen.getByTestId('description-section-1')).toHaveTextContent(message)
   });
 });
 
@@ -34,11 +26,9 @@ describe('description-section-2', () => {
     render(<SwapiPerson person={personResponse} />);
   });
 
-  it('should render the height', () => {
-    expect(screen.getByTestId('description-section-2')).toHaveTextContent('172cm tall');
-  });
-  it('should render the weight', () => {
-    expect(screen.getByTestId('description-section-2')).toHaveTextContent('77 kilograms');
+  it('should render the correct message', () => {
+    const message = 'He is 172cm tall and weighs 77 kilograms.'
+    expect(screen.getByTestId('description-section-2')).toHaveTextContent(message)
   });
 });
 
