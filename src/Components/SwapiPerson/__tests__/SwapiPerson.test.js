@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react'
 import SwapiPerson from '../SwapiPerson'
-import personResponse from './person.response.json'
+import personResponse from '../__tests__/person.response.json'
 
 describe('header', () => {
   it('should render name in header', () => {
