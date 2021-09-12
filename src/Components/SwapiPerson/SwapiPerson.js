@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Card, CardHeader, CardBody, CardTitle, CardText, CardFooter } from 'reactstrap'
-import { capitalizeFirstLetter } from '../utils'
+import { capitalizeFirstLetter } from '../../utils'
 
 const SwapiPerson = ({ person = {} }) => {
 

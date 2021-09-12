@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react'
-import SwapiSpecies from '../SwapiSpecies'
+import SwapiSpecies from '../'
 import speciesResponse from './species.response.json'
 
 describe('header', () => {

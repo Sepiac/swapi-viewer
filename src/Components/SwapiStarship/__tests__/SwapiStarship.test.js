@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react'
-import SwapiStarship from '../SwapiStarship'
+import SwapiStarship from '..'
 import starshipResponse from './starship.response.json'
 
 describe('header', () => {

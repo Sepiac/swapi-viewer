@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Card, CardHeader, CardBody, CardTitle, CardText, CardFooter } from 'reactstrap'
-import { getFormattedDate } from '../utils'
+import { getFormattedDate } from '../../utils'
 import romanNumeral from 'roman-numeral'
 
 const SwapiFilm = ({ film = {} }) => {
