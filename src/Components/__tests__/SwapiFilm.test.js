@@ -1,0 +1,40 @@
+import React from 'react';
+import { render, screen } from '@testing-library/react'
+import SwapiFilm from '../SwapiFilm'
+import filmResponse from './film.response.json'
+
+describe('header', () => {
+  it('should render name in header', () => {
+    render(<SwapiFilm film={filmResponse} />);
+    expect(screen.getByTestId('header-section')).toHaveTextContent('Episode IV: A New Hope')
+  })
+})
+
+describe('description-section-1', () => {
+  beforeEach(() => {
+    render(<SwapiFilm film={filmResponse} />);
+  })
+
+  it('should render the correct message', () => {
+    const message = 'A New Hope was directed by George Lucas, produced by Gary Kurtz, Rick McCallum, and released on 05/25/1977.'
+    expect(screen.getByTestId('description-section-1')).toHaveTextContent(message)
+  })
+})
+
+describe('description-section-2', () => {
+  beforeEach(() => {
+    render(<SwapiFilm film={filmResponse} />);
+  })
+
+  it('should render the correct message', () => {
+    const message = 'It is a period of civil war. Rebel spaceships, striking from a hidden base, have won their first victory against the evil Galactic Empire. During the battle, Rebel spies managed to steal secret plans to the Empire\'s ultimate weapon, the DEATH STAR, an armored space station with enough power to destroy an entire planet. Pursued by the Empire\'s sinister agents, Princess Leia races home aboard her starship, custodian of the stolen plans that can save her people and restore freedom to the galaxy....'
+    expect(screen.getByTestId('description-section-2')).toHaveTextContent(message)
+  })
+})
+
+describe('footer', () => {
+  it('should render the correct footer', () => {
+    render(<SwapiFilm film={filmResponse} />);
+    expect(screen.getByTestId('footer-section')).toHaveTextContent('Episode IV: A New Hope')
+  });
+})
