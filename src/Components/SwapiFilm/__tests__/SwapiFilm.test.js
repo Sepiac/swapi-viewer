@@ -6,7 +6,7 @@ import filmResponse from './film.response.json'
 describe('header', () => {
   it('should render the correct header', () => {
     render(<SwapiFilm film={filmResponse} />);
-    expect(screen.getByTestId('header-section')).toHaveTextContent('Episode IV: A New Hope')
+    expect(screen.getByTestId('header-section').textContent).toEqual('Episode IV: A New Hope')
   })
 })
 
@@ -17,7 +17,7 @@ describe('description-section-1', () => {
 
   it('should render the correct message', () => {
     const message = 'A New Hope was directed by George Lucas, produced by Gary Kurtz, Rick McCallum, and released on 05/25/1977.'
-    expect(screen.getByTestId('description-section-1')).toHaveTextContent(message)
+    expect(screen.getByTestId('description-section-1').textContent).toEqual(message)
   })
 })
 
@@ -27,14 +27,14 @@ describe('description-section-2', () => {
   })
 
   it('should render the correct message', () => {
-    const message = 'It is a period of civil war. Rebel spaceships, striking from a hidden base, have won their first victory against the evil Galactic Empire. During the battle, Rebel spies managed to steal secret plans to the Empire\'s ultimate weapon, the DEATH STAR, an armored space station with enough power to destroy an entire planet. Pursued by the Empire\'s sinister agents, Princess Leia races home aboard her starship, custodian of the stolen plans that can save her people and restore freedom to the galaxy....'
-    expect(screen.getByTestId('description-section-2')).toHaveTextContent(message)
+    const message = "It is a period of civil war.\r\nRebel spaceships, striking\r\nfrom a hidden base, have won\r\ntheir first victory against\r\nthe evil Galactic Empire.\r\n\r\nDuring the battle, Rebel\r\nspies managed to steal secret\r\nplans to the Empire's\r\nultimate weapon, the DEATH\r\nSTAR, an armored space\r\nstation with enough power\r\nto destroy an entire planet.\r\n\r\nPursued by the Empire's\r\nsinister agents, Princess\r\nLeia races home aboard her\r\nstarship, custodian of the\r\nstolen plans that can save her\r\npeople and restore\r\nfreedom to the galaxy...."
+    expect(screen.getByTestId('description-section-2').textContent).toEqual(message)
   })
 })
 
 describe('footer', () => {
   it('should render the correct footer', () => {
     render(<SwapiFilm film={filmResponse} />);
-    expect(screen.getByTestId('footer-section')).toHaveTextContent('Episode IV: A New Hope')
+    expect(screen.getByTestId('footer-section').textContent).toEqual('Episode IV: A New Hope')
   });
 })
