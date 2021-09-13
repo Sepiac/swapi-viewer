@@ -15,19 +15,19 @@ const SwapiFilm = ({ film = {} }) => {
   } = film
 
   return (
-      <Card data-testid="swapi-film">
-        <CardHeader data-testid="header-section">Episode {romanNumeral.convert(episodeId)}: {title}</CardHeader>
-        <CardBody>
-          <CardTitle tag="h5">Description</CardTitle>
-          <CardText data-testid="description-section-1">
-            {title} was directed by {director}, produced by {producer}, and released on {getFormattedDate(releaseDate)}.
-          </CardText>
-          <CardText data-testid="description-section-2">
-            {openingCrawl}
-          </CardText>
-        </CardBody>
-        <CardFooter data-testid="footer-section">Episode {romanNumeral.convert(episodeId)}: {title}</CardFooter>
-      </Card>
+    <Card data-testid="swapi-film">
+      <CardHeader data-testid="header-section">Episode {romanNumeral.convert(episodeId)}: {title}</CardHeader>
+      <CardBody>
+        <CardTitle tag="h5">Description</CardTitle>
+        <CardText data-testid="description-section-1">
+          {title} was directed by {director}, produced by {producer}, and released on {getFormattedDate(releaseDate)}.
+        </CardText>
+        <CardText data-testid="description-section-2">
+          {openingCrawl}
+        </CardText>
+      </CardBody>
+      <CardFooter data-testid="footer-section">Episode {romanNumeral.convert(episodeId)}: {title}</CardFooter>
+    </Card>
   )
 }
 
