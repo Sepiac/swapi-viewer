@@ -4,7 +4,7 @@ import SwapiPerson from '../SwapiPerson'
 import personResponse from '../__tests__/person.response.json'
 
 describe('header', () => {
-  it('should render name in header', () => {
+  it('should render the correct header', () => {
     render(<SwapiPerson person={personResponse} />);
     expect(screen.getByTestId('header-section').textContent).toEqual('Luke Skywalker');
   });

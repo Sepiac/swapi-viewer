@@ -4,7 +4,7 @@ import SwapiFilm from '../SwapiFilm'
 import filmResponse from './film.response.json'
 
 describe('header', () => {
-  it('should render name in header', () => {
+  it('should render the correct header', () => {
     render(<SwapiFilm film={filmResponse} />);
     expect(screen.getByTestId('header-section')).toHaveTextContent('Episode IV: A New Hope')
   })

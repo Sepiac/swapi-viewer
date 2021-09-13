@@ -4,7 +4,7 @@ import SwapiSpecies from '../'
 import speciesResponse from './species.response.json'
 
 describe('header', () => {
-  it('should render name in header', () => {
+  it('should render the correct header', () => {
     render(<SwapiSpecies species={speciesResponse} />);
     expect(screen.getByTestId('header-section').textContent).toEqual('Human');
   });

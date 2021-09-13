@@ -5,7 +5,7 @@ import SwapiPlanet from '../SwapiPlanet'
 import planetResponse from './planet.response.json'
 
 describe('header', () => {
-  it('should render name in header', () => {
+  it('should render the correct header', () => {
     render(<SwapiPlanet planet={planetResponse} />);
     expect(screen.getByTestId('header-section').textContent).toEqual('Tatooine');
   });

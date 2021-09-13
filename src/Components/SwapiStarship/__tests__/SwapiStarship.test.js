@@ -4,7 +4,7 @@ import SwapiStarship from '..'
 import starshipResponse from './starship.response.json'
 
 describe('header', () => {
-  it('should render name in header', () => {
+  it('should render the correct header', () => {
     render(<SwapiStarship starship={starshipResponse} />);
     expect(screen.getByTestId('header-section')).toHaveTextContent('CR90 corvette')
   })

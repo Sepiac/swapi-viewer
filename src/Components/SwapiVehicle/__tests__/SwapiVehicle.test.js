@@ -4,7 +4,7 @@ import SwapiVehicle from '..'
 import vehicleResponse from './vehicle.response.json'
 
 describe('header', () => {
-  it('should render name in header', () => {
+  it('should render the correct header', () => {
     render(<SwapiVehicle vehicle={vehicleResponse} />);
     expect(screen.getByTestId('header-section')).toHaveTextContent('Sand Crawler')
   })
