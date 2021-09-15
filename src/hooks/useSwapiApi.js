@@ -4,7 +4,7 @@ const useSwapiApi = ({ entity, id, url }) => {
     return useQuery(`${entity}:${id}`, async () => {
         const response = await fetch(url ? url : `https://swapi.dev/api/${entity}/${id}/`)
         if(!response.ok) {
-            throw new Error(response.status)
+            throw new Error(`Error ${response.status} when fetching ${entity} id ${id}.`)
         }
         return response.json()
     }, {
