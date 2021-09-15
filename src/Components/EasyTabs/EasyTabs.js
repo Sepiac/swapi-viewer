@@ -13,8 +13,9 @@ const EasyTabs = ({ children }) => {
     <>
       <Nav tabs style={{ 'marginBottom': '25px' }}>
         {React.Children.map(children, (child, index) => (
-          <NavItem>
+          <NavItem data-testid="easy-tabs-nav-item">
             <NavLink
+              data-testid="easy-tabs-nav-link"
               className={classnames({ active: activeTab === `${index}` })}
               onClick={() => { toggle(`${index}`); }}
             >
@@ -25,7 +26,7 @@ const EasyTabs = ({ children }) => {
       </Nav>
       <TabContent activeTab={activeTab}>
         {React.Children.map(children, (child, index) => (
-          <TabPane tabId={`${index}`}>
+          <TabPane tabId={`${index}`} data-testid="easy-tabs-tab-pane">
             {child}
           </TabPane>
         ))}
