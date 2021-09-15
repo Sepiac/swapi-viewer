@@ -1,41 +1,41 @@
 import React, { useState } from 'react'
 import { useSwapiApi } from '../hooks'
-import { Container, Row, Col, Input, Form, FormGroup, Label, Spinner } from 'reactstrap'
+import { Container, Row, Col, Input, Form, FormGroup, Label, Spinner, Alert } from 'reactstrap'
 import { Swapiperson, SwapiPlanet, SwapiSpecies, SwapiStarhip, SwapiVehicle, SwapiFilm, EasyTabs, EasyTab } from '../Components'
 
 export const SwapiTabView = () => {
   const [personId, setPersonId] = useState('1');
-  const { data: person, isLoading: isPersonLoading } = useSwapiApi({
+  const { data: person, isLoading: isPersonLoading, error: personError } = useSwapiApi({
     entity: 'people',
     id: personId
   })
 
   const [planetId, setPlanetId] = useState('1')
-  const { data: planet, isLoading: isPlanetLoading } = useSwapiApi({
+  const { data: planet, isLoading: isPlanetLoading, error: planetError } = useSwapiApi({
     entity: 'planets',
     id: planetId
   })
 
   const [speciesId, setSpeciesId] = useState('1')
-  const { data: species, isLoading: isSpeciesLoading } = useSwapiApi({
+  const { data: species, isLoading: isSpeciesLoading, error: speciesError } = useSwapiApi({
     entity: 'species',
     id: speciesId
   })
 
   const [starshipId, setStarshipId] = useState('1')
-  const { data: starship, isLoading: isStarshipLoading } = useSwapiApi({
+  const { data: starship, isLoading: isStarshipLoading, error: starshipError} = useSwapiApi({
     entity: 'starships',
     id: starshipId
   })
 
   const [vehicleId, setVehicleId] = useState('1')
-  const { data: vehicle, isLoading: isVehicleLoading } = useSwapiApi({
+  const { data: vehicle, isLoading: isVehicleLoading, error: vehicleError } = useSwapiApi({
     entity: 'vehicles',
     id: vehicleId
   })
 
   const [filmId, setFilmId] = useState('1')
-  const { data: film, isLoading: isFilmLoading} = useSwapiApi({
+  const { data: film, isLoading: isFilmLoading, error: filmError } = useSwapiApi({
     entity: 'films',
     id: filmId
   })
@@ -56,7 +56,7 @@ export const SwapiTabView = () => {
           </Form>
           <Row>
             <Col sm="12">
-              {isPersonLoading ? <Spinner color="primary" /> : <Swapiperson person={person} />}
+              {personError ? <Alert color="danger">{personError.message}</Alert> : isPersonLoading ? <Spinner color="primary" /> : <Swapiperson person={person} />}
             </Col>
           </Row>
         </EasyTab>
@@ -68,7 +68,7 @@ export const SwapiTabView = () => {
             }}></Input>
           </Form>
           <Col sm="12">
-            {isPlanetLoading ? <Spinner color="primary" /> : <SwapiPlanet planet={planet} />}
+            {planetError ? <Alert color="danger">{planetError.message}</Alert> : isPlanetLoading ? <Spinner color="primary" /> : <SwapiPlanet planet={planet} />}
           </Col>
         </EasyTab>
         <EasyTab label="Species">
@@ -79,7 +79,7 @@ export const SwapiTabView = () => {
             }}></Input>
           </Form>
           <Col sm="12">
-            {isSpeciesLoading ? <Spinner color="primary" /> : <SwapiSpecies species={species} />}
+            {speciesError ? <Alert color="danger">{speciesError.message}</Alert> : isSpeciesLoading ? <Spinner color="primary" /> : <SwapiSpecies species={species} />}
           </Col>
         </EasyTab>
         <EasyTab label="Starships">
@@ -90,7 +90,7 @@ export const SwapiTabView = () => {
             }}></Input>
           </Form>
           <Col sm="12">
-            {isStarshipLoading ? <Spinner color="primary" /> : <SwapiStarhip starship={starship} />}
+            {starshipError ? <Alert color="danger">{starshipError.message}</Alert> : isStarshipLoading ? <Spinner color="primary" /> : <SwapiStarhip starship={starship} />}
           </Col>
         </EasyTab>
         <EasyTab label="Vehicles">
@@ -101,7 +101,7 @@ export const SwapiTabView = () => {
             }}></Input>
           </Form>
           <Col sm="12">
-            {isVehicleLoading ? <Spinner color="primary" /> : <SwapiVehicle vehicle={vehicle} />}
+            {vehicleError ? <Alert color="danger">{vehicleError.message}</Alert> : isVehicleLoading ? <Spinner color="primary" /> : <SwapiVehicle vehicle={vehicle} />}
           </Col>
         </EasyTab>
         <EasyTab label="Films">
@@ -112,7 +112,7 @@ export const SwapiTabView = () => {
             }}></Input>
           </Form>
           <Col sm="12">
-            {isFilmLoading ? <Spinner color="primary" /> : <SwapiFilm film={film} />}
+            {filmError ? <Alert color="danger">{filmError.message}</Alert> : isFilmLoading ? <Spinner color="primary" /> : <SwapiFilm film={film} />}
           </Col>
         </EasyTab>
       </EasyTabs>
