@@ -1,3 +1,5 @@
+export { default as SwapiNavBar } from './SwapiNavBar'
+export { default as SwapiTabView } from './SwapiTabView'
 export { default as Swapiperson } from './SwapiPerson'
 export { default as SwapiPlanet } from './SwapiPlanet'
 export { default as SwapiSpecies } from './SwapiSpecies'
