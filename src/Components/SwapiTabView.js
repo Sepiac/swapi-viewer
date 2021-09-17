@@ -40,8 +40,6 @@ export const SwapiTabView = () => {
     id: filmId
   })
 
-
-
   return (
     <Container style={{ 'marginTop': '25px' }}>
       <EasyTabs>
