@@ -117,3 +117,5 @@ export const SwapiTabView = () => {
     </Container>
   )
 }
+
+export default SwapiTabView;

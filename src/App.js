@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css'
 import { QueryClient, QueryClientProvider } from 'react-query'
-import { SwapiTabView } from './Components/SwapiTabView'
+import { SwapiTabView } from './Components'
 
 function App() {
 
